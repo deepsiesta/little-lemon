@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
             <img src={footerLogo} />
             <div>
-                Copyright Little Lemon
+                © Little Lemon 2024
             </div>
         </footer>
     )
