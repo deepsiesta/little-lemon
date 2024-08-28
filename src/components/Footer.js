@@ -4,9 +4,9 @@ import footerLogo from "../assets/footer_logo.png"
 const Footer = () => {
     return (
         <footer>
-            <img src={footerLogo} />
+            <div><img src={footerLogo} /></div>
             <div>
-                © Little Lemon 2024
+                <p>© Little Lemon 2024</p>
             </div>
         </footer>
     )

@@ -1,0 +1,24 @@
+
+.banner {
+  background-color: #495E57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  min-height: 10rem;
+  padding: auto auto auto auto;
+}
+
+.banner img {
+  max-width: 10%;
+}
+
+.banner-button {
+  background-color: #F4CE14;
+  border-radius: 1rem;
+  padding: 0.3rem 0.6rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
