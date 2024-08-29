@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="banner">
+        <header>
             <img src={BannerPicture} />
             <div>
                 <p className="banner-info">
@@ -16,7 +16,7 @@ const Banner = () => {
                     Reserve a table
                 </Link>
             </div>
-        </div>
+        </header>
     )
 }
 

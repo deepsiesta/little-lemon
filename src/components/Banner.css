@@ -1,5 +1,5 @@
 
-.banner {
+header {
   background-color: #495E57;
   display: flex;
   align-items: center;
@@ -10,12 +10,12 @@
   padding: auto auto auto auto;
 }
 
-.banner div {
+header div {
   grid-column: 1;
   max-width: 40%;
 }
 
-.banner img {
+header img {
   max-height: 450px;
   max-width: 40%;
 }

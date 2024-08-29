@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav img {
+  max-height: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  margin: auto 0.2rem;
+  padding: 0.2rem 0.6rem;
+  font-weight: bold; 
+}
+

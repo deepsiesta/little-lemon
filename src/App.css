@@ -20,29 +20,6 @@ header>img {
   max-height: 100%;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-nav ul {
-  list-style: none;
-  text-align: center;
-}
-
-nav li {
-  display: inline-block;
-  margin: auto 0.2rem;
-  padding: 0.2rem 0.6rem;
-  /*background-color: #F4CE14;*/
-  /*background-color: #495E57;*/
-  /*border-radius: 1rem;*/
-  font-weight: bold; 
-}
-
 footer {
   margin: 3rem auto;
   display: flex;
