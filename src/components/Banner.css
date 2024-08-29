@@ -10,10 +10,19 @@
   padding: auto auto auto auto;
 }
 
-.banner img {
-  max-width: 10%;
+.banner div {
+  grid-column: 1;
+  max-width: 40%;
 }
 
+.banner img {
+  max-height: 450px;
+  max-width: 40%;
+}
+
+.banner-info {
+  text-wrap: wrap;
+}
 .banner-button {
   background-color: #F4CE14;
   border-radius: 1rem;

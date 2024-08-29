@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 const Banner = () => {
     return (
         <div className="banner">
+            <img src={BannerPicture} />
             <div>
-                <p>
+                <p className="banner-info">
                     A family-owned Mediterranean restaurant in Chicago, focused on
                     traditional recipes served with a modern twist.
                 </p>
@@ -15,7 +16,6 @@ const Banner = () => {
                     Reserve a table
                 </Link>
             </div>
-            <img src={BannerPicture} />
         </div>
     )
 }
