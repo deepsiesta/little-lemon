@@ -21,8 +21,11 @@ header img {
 }
 
 .banner-info {
+  color: white;
   text-wrap: wrap;
+  font-weight: 500; /* semi-bold */
 }
+
 .banner-button {
   background-color: #F4CE14;
   border-radius: 1rem;

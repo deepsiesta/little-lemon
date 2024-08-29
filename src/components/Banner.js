@@ -8,10 +8,10 @@ const Banner = () => {
         <header>
             <img src={BannerPicture} />
             <div>
-                <p className="banner-info">
+                <h2 className="banner-info">
                     A family-owned Mediterranean restaurant in Chicago, focused on
                     traditional recipes served with a modern twist.
-                </p>
+                </h2>
                 <Link to="/book" className="banner-button">
                     Reserve a table
                 </Link>
