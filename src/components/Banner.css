@@ -11,7 +11,7 @@ header {
 }
 
 header div {
-  grid-column: 1;
+  display: grid;
   max-width: 40%;
 }
 
@@ -33,4 +33,5 @@ header img {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  justify-self: center;
 }

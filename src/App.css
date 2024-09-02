@@ -20,26 +20,4 @@ header>img {
   max-height: 100%;
 }
 
-footer {
-  margin: 3rem auto;
-  display: flex;
-  align-items: top;
-  max-width: 500px;
-}
 
-footer div {
-  /*flex: 1;*/
-}
-
-footer img {
-  max-height: 80px;
-  /*margin: auto auto 2rem auto;*/
-}
-
-footer p {
-  border-top: 0.1rem solid #000000;
-  padding: 0.2rem 6rem;
-  text-align: right;
-  margin: auto 4rem auto auto;
-  min-width: 80%;
-}
