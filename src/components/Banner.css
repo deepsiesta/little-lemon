@@ -4,15 +4,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  /*flex-direction: column;*/
   flex-wrap: wrap;
-  min-height: 10rem;
+  min-height: 50vh;
   padding: auto auto auto auto;
 }
 
 header div {
   display: grid;
   max-width: 40%;
+  padding: 0.2rem;
 }
 
 header img {
@@ -34,4 +34,5 @@ header img {
   color: black;
   font-weight: bold;
   justify-self: center;
+  margin: auto;
 }
