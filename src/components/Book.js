@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./Book.css"
 import { useNavigate } from "react-router-dom";
 
-const Book = (props) => {
+const Book = ({ availableTimes, dispatch, ...props }) => {
 
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -15,22 +15,18 @@ const Book = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.submitForm(e);
-        navigate("/success")
+        navigate("/success");
     }
 
-    const availableTimes = [
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
+    const handleDateChange = (val) => {
+        dispatch(val);
+        setDate(val);
 
-    ]
+    }
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={date} onChange={e => setDate(e.target.value)} required />
+            <input type="date" id="res-date" value={date} onChange={e => handleDateChange(e.target.value)} required />
             <label htmlFor="res-time">Choose time</label>
             <select id="res-time " value={time} placeholder={availableTimes[0]} onChange={e => setTime(e.target.value)} required>
                 {availableTimes.map(t => (<option>{t}</option>))}
