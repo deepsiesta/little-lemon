@@ -3,6 +3,8 @@ import './components/Nav.js'
 import Nav from './components/Nav.js';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
+import Book from './components/Book.js'
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -12,7 +14,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Main />} />
-                    <Route path='book' element={null} />
+                    <Route path='book' element={<Book />} />
 
                 </Routes>
             </BrowserRouter>
