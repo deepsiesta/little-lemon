@@ -1,0 +1,15 @@
+main{
+  display: grid;
+}
+
+.return-button {
+  background-color: #F4CE14;
+  border-radius: 1rem;
+  padding: 0.3rem 0.6rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  max-width: 10%;
+  justify-self: center;
+  /*margin: auto;*/
+}

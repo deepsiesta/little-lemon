@@ -14,8 +14,9 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.submitForm(e);
-        navigate("/success");
+        if (props.submitForm(e)) {
+            navigate("/success");
+        }
     }
 
     const handleDateChange = (val) => {
