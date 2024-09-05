@@ -1,22 +1,23 @@
-import React from "react";
+import Home from './Home.js';
+import Book from './Book.js'
+import Success from './Success.js'
 
-import Banner from "./Banner.js";
-import Card from "./Card.js";
-import "./Main.css"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useReducer } from 'react';
+import { initializeTimes, updateTimes } from '../utils/times.js';
 
 const Main = () => {
-    const dummyRecipes = [
-        { "title": "Pizza", "description": "lorem ipsum sic dolor amet", "price": 4.20 },
-        { "title": "Salad", "description": "Lorem ipsum sic dolor amet", "price": 6.90 }
-    ]
-    let recipeCards = dummyRecipes.map(recipe => <Card key={recipe.name} {...recipe} />);
+    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
+
     return (
-        <main>
-            <Banner />
-            <h2>Popular recipes</h2>
-            <div className="recipe-list">{recipeCards}</div>
-        </main>
-    )
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path='book' element={<Book availableTimes={availableTimes} dispatch={dispatch} />} />
+                <Route path='success' element={<Success />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default Main;
