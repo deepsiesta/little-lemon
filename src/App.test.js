@@ -6,41 +6,43 @@ import { initializeTimes } from "./utils/times.js"
 import userEvent from '@testing-library/user-event';
 
 test('Renders the heading', () => {
-  render(
-    <BrowserRouter>
-      <Book availableTimes={[]} />
-    </BrowserRouter>
-  );
-  const headingElement = screen.getByText("Book Now");
-  expect(headingElement).toBeInTheDocument();
+    render(
+        <BrowserRouter>
+            <Book availableTimes={[]} />
+        </BrowserRouter>
+    );
+    const headingElement = screen.getByText("Book Now");
+    expect(headingElement).toBeInTheDocument();
 })
 
 test('InitializeTimes returns proper times', () => {
-  render(
-    <BrowserRouter>
-      <Book availableTimes={initializeTimes()} />
-    </BrowserRouter>
-  );
+    render(
+        <BrowserRouter>
+            <Book availableTimes={initializeTimes()} />
+        </BrowserRouter>
+    );
 
-  const timeSelect = screen.getByLabelText('Choose time');
-  const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
-  expect(timeOptions).toEqual(initializeTimes());
+    const timeSelect = screen.getByLabelText('Choose time');
+    const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
+    expect(timeOptions).toEqual(initializeTimes());
 })
 
 
 test('available times change on date selection', () => {
-  const newAvailableTimes = initializeTimes();
+    const newAvailableTimes = initializeTimes();
 
-  render(<Main />);
+    render(<Main />);
 
-  const reserveTableLink = screen.getByText('Reserve a table');
-  userEvent.click(reserveTableLink);
+    const reserveTableLink = screen.getByText('Reserve a table');
+    userEvent.click(reserveTableLink);
 
-  const dateInput = screen.getByLabelText('Choose date');
-  fireEvent.change(dateInput, { target: { value: '2024-09-10' } });
-
-  const timeSelect = screen.getByLabelText('Choose time');
-  const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
-  expect(timeOptions).toEqual(newAvailableTimes);
+    const dateInput = screen.getByLabelText('Choose date');
+    let otherDate = new Date();
+    otherDate.setDate(otherDate.getDate() + 2);
+    const otherDateString = otherDate.toISOString().split('T')[0];
+    fireEvent.change(dateInput, { target: { value: otherDateString } });
+    const timeSelect = screen.getByLabelText('Choose time');
+    const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
+    expect(timeOptions).not.toEqual(newAvailableTimes);
 });
 

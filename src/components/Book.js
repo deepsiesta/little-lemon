@@ -19,7 +19,7 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
     }
 
     const handleDateChange = (val) => {
-        dispatch(val);
+        dispatch(new Date(val));
         setDate(val);
 
     }
