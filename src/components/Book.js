@@ -30,7 +30,7 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" value={date} onChange={e => handleDateChange(e.target.value)} required />
                 <label htmlFor="res-time">Choose time</label>
-                <select id="res-time " value={time} onChange={e => setTime(e.target.value)} required>
+                <select id="res-time" value={time} onChange={e => setTime(e.target.value)} required>
                     {availableTimes.map(t => (<option>{t}</option>))}
                 </select>
                 <label htmlFor="guests">Number of guests</label>
