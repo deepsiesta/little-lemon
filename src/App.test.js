@@ -29,7 +29,7 @@ test('InitializeTimes returns proper times', () => {
 
 
 test('available times change on date selection', () => {
-    const newAvailableTimes = initializeTimes();
+    const initialTimes = initializeTimes();
 
     render(<Main />);
 
@@ -39,10 +39,9 @@ test('available times change on date selection', () => {
     const dateInput = screen.getByLabelText('Choose date');
     let otherDate = new Date();
     otherDate.setDate(otherDate.getDate() + 2);
-    const otherDateString = otherDate.toISOString().split('T')[0];
-    fireEvent.change(dateInput, { target: { value: otherDateString } });
+    fireEvent.change(dateInput, { target: { value: otherDate } });
     const timeSelect = screen.getByLabelText('Choose time');
     const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
-    expect(timeOptions).not.toEqual(newAvailableTimes);
+    expect(timeOptions).not.toEqual(initialTimes);
 });
 
