@@ -1,12 +1,12 @@
 import React from "react";
-import BannerPicture from "../assets/footer_logo.png"
+import BannerPicture from "../assets/restaurant.jpg"
 import "./Banner.css"
 import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
         <header>
-            <img src={BannerPicture} />
+            <img src={BannerPicture} alt="The Little Lemon restaurant" />
             <div>
                 <h2 className="banner-info">
                     A family-owned Mediterranean restaurant in Chicago, focused on

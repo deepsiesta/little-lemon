@@ -6,7 +6,6 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   min-height: 50vh;
-  padding: auto auto auto auto;
 }
 
 header div {
@@ -17,7 +16,7 @@ header div {
 
 header img {
   max-height: 450px;
-  max-width: 40%;
+  max-width: 50%;
 }
 
 .banner-info {
