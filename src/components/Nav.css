@@ -18,5 +18,9 @@ nav li {
   margin: auto 0.2rem;
   padding: 0.2rem 0.6rem;
   font-weight: bold; 
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
 }
 

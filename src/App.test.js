@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Book from './components/Book.js';
-import Main from './components/Main.js';
+import App from './App.js';
 import { BrowserRouter } from "react-router-dom";
 import { initializeTimes } from "./utils/times.js"
 import userEvent from '@testing-library/user-event';
@@ -31,7 +31,7 @@ test('InitializeTimes returns proper times', () => {
 test('available times change on date selection', () => {
     const initialTimes = initializeTimes();
 
-    render(<Main />);
+    render(<App />);
 
     const reserveTableLink = screen.getByText('Reserve a table');
     userEvent.click(reserveTableLink);
