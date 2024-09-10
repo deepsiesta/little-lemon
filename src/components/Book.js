@@ -1,12 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import "./Book.css";
 
-const Book = ({ availableTimes, dispatch, ...props }) => {
-    const navigate = useNavigate();
+const Book = ({ availableTimes, dispatch, submitForm, ...props }) => {
 
     const today = new Date()
     const todayString = today.toISOString().split('T')[0];
@@ -29,15 +27,10 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
         occasion: '',
     };
 
-    const handleSubmit = (values) => {
-        if (props.submitForm(values)) {
-            navigate("/success");
-        }
-    };
-
     const handleDateChange = (setFieldValue, val) => {
         dispatch(new Date(val));
         setFieldValue('date', val);
+        setFieldValue('time', '');
     };
 
     return (
@@ -46,11 +39,10 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={handleSubmit}
+                onSubmit={submitForm}
             >
-                {({ isSubmitting, setFieldValue, values }) => (
+                {({ isSubmitting, setFieldValue }) => (
                     <Form>
-
                         <label htmlFor="res-date">Choose date</label>
                         <Field
                             type="date"
@@ -62,7 +54,8 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
                         <ErrorMessage name="date" component="div" className="error" />
 
                         <label htmlFor="res-time">Choose time</label>
-                        <Field as="select" id="res-time" name="time" disabled={!values.date} required>
+                        <Field as="select" id="res-time" name="time" required>
+                            <option key="default" value="">Choose a time</option>
                             {availableTimes.map(t => (
                                 <option key={t} value={t}>{t}</option>
                             ))}
@@ -79,7 +72,7 @@ const Book = ({ availableTimes, dispatch, ...props }) => {
                         </Field>
 
                         <button type="submit" disabled={isSubmitting}>
-                            Make Your reservation
+                            Make Your Reservation
                         </button>
                     </Form>
                 )}

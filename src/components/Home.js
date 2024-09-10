@@ -12,7 +12,7 @@ const Home = () => {
         { "title": "Pizza", "image": Pizza, "description": desc, "price": 4.20 },
         { "title": "Salad", "image": Salad, "description": desc, "price": 6.90 }
     ]
-    let recipeCards = dummyRecipes.map(recipe => <Card key={recipe.name} {...recipe} />);
+    let recipeCards = dummyRecipes.map(recipe => <Card key={recipe.title} {...recipe} />);
     return (
         <main>
             <Banner />

@@ -1,47 +1,52 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Book from './components/Book.js';
-import App from './App.js';
+import { act } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { initializeTimes } from "./utils/times.js"
 import userEvent from '@testing-library/user-event';
 
-test('Renders the heading', () => {
-    render(
-        <BrowserRouter>
-            <Book availableTimes={[]} />
-        </BrowserRouter>
-    );
-    const headingElement = screen.getByText("Book Now");
-    expect(headingElement).toBeInTheDocument();
+import Book from './components/Book.js';
+import App from './App.js';
+import { initializeTimes } from "./utils/times.js"
+
+
+describe("Banner", () => {
+    it("Renders the banner button", async () => {
+        render(
+            <BrowserRouter>
+                <Book availableTimes={[]} />
+            </BrowserRouter>
+        );
+        const headingElement = screen.getByText("Book Now");
+        expect(headingElement).toBeInTheDocument();
+    })
 })
 
-test('InitializeTimes returns proper times', () => {
-    render(
-        <BrowserRouter>
-            <Book availableTimes={initializeTimes()} />
-        </BrowserRouter>
-    );
-
-    const timeSelect = screen.getByLabelText('Choose time');
-    const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
-    expect(timeOptions).toEqual(initializeTimes());
-})
-
-
-test('available times change on date selection', () => {
+describe("Booking times API", () => {
     const initialTimes = initializeTimes();
+    it("Returns proper times when InitializeTimes is called", async () => {
+        render(
+            <BrowserRouter>
+                <Book availableTimes={initialTimes} />
+            </BrowserRouter>
+        );
 
-    render(<App />);
+        const timeSelect = screen.getByLabelText('Choose time');
+        const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
+        expect(timeOptions).toEqual(["Choose a time", ...initializeTimes()]);
+    })
+    it("Returns different available times after date change", async () => {
 
-    const reserveTableLink = screen.getByText('Reserve a table');
-    userEvent.click(reserveTableLink);
+        render(<App />);
 
-    const dateInput = screen.getByLabelText('Choose date');
-    let otherDate = new Date();
-    otherDate.setDate(otherDate.getDate() + 2);
-    fireEvent.change(dateInput, { target: { value: otherDate } });
-    const timeSelect = screen.getByLabelText('Choose time');
-    const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
-    expect(timeOptions).not.toEqual(initialTimes);
+        const reserveTableLink = screen.getByText('Reserve a table');
+        userEvent.click(reserveTableLink);
+
+        const dateInput = screen.getByLabelText('Choose date');
+        let otherDate = new Date();
+        otherDate.setDate(otherDate.getDate() + 2);
+        act(() => fireEvent.change(dateInput, { target: { value: otherDate } }));
+        const timeSelect = screen.getByLabelText('Choose time');
+        const timeOptions = Array.from(timeSelect.querySelectorAll('option')).map(option => option.textContent);
+        expect(timeOptions).not.toEqual(initialTimes);
+    });
 });
 
