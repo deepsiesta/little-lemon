@@ -12,7 +12,7 @@ const Banner = () => {
                     A family-owned Mediterranean restaurant in Chicago, focused on
                     traditional recipes served with a modern twist.
                 </h2>
-                <Link to="/book" className="banner-button">
+                <Link to="/book" className="banner-button" aria-label="On Click">
                     Reserve a table
                 </Link>
             </div>

@@ -8,10 +8,10 @@ const Nav = () => {
         <nav>
             <img src={headerLogo} alt="Little Lemon" />
             <ul>
-                <Link to="/"><li>Home</li></Link>
-                <Link to="/"><li>Menu</li></Link>
-                <Link to="/book"><li>Book</li></Link>
-                <Link to="/"><li>About</li></Link>
+                <Link to="/" aria-label="On Click"><li>Home</li></Link>
+                <Link to="/" aria-label="On Click"><li>Menu</li></Link>
+                <Link to="/book" aria-label="On Click"><li>Book</li></Link>
+                <Link to="/" aria-label="On Click"><li>About</li></Link>
             </ul>
         </nav>
     )
