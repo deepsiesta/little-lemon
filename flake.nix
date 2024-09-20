@@ -10,6 +10,7 @@
         pkgs = (import (inputs.nixpkgs) { inherit system; });
       in {
         devShell = pkgs.mkShell {
+          name = "little-lemon";
           buildInputs=[
             pkgs.nodejs
             pkgs.nodePackages.pnpm
